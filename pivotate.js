@@ -185,7 +185,7 @@ var pivotate = (function() {
 			self.formatIMG = c;
 			var tool = 'rectangle';
 			self.formatIMG.setTool(tool);
-			for ( var i = 0, max = icons.length; i < max; i++ ) {
+			for ( var i = 0, max = draw_icons.length; i < max; i++ ) {
 			   				 
 			    draw_icons[i].addEventListener( 'click', function() {
 					for ( var y = 0, max = draw_icons.length; y < max; y++ ) {

@@ -102,41 +102,31 @@ body {
 .story .drawtools li.pencil.active,
 .story .drawtools li.rectangle.active,
 .story .drawtools li.ellipse.active,
-.story .drawtools li.line.active {
+.story .drawtools li.line.active,
+.story .drawtools li.eyedropper.active {
     background-color: #FF9E00;
     border: 1px solid #111111;
     color: #77A7DA;
 }
 
 .story .drawtools li.pencil.active, 
-.story .drawtools li.pencil:hover{
-    background-position:left bottom;
-}
+.story .drawtools li.pencil:hover{background-position:left bottom;}
 
-.story .drawtools li.rectangle {
-    background-position:-22px 0;
-}
+.story .drawtools li.rectangle {background-position:-22px 0;}
 .story .drawtools li.rectangle.active,
-.story .drawtools li.rectangle:hover{
-    background-position:-22px bottom;
-}
+.story .drawtools li.rectangle:hover{background-position:-22px bottom;}
 
-.story .drawtools li.ellipse{
-    background-position:-44px 0;
-}
+.story .drawtools li.ellipse{background-position:-44px 0;}
 .story .drawtools li.ellipse.active,
 .story .drawtools li.ellipse:hover{ background-position:-44px bottom;}
 
-.story .drawtools li.line{
-    background-position:right 0;
-}
+.story .drawtools li.line{background-position:-66px 0;}
 .story .drawtools li.line.active,
-.story .drawtools li.line:hover{
-    background-position:right bottom;
-}
+.story .drawtools li.line:hover{ background-position:-66px bottom;}
 
-
-
+.story .drawtools li.eyedropper{background-position:right 0;}
+.story .drawtools li.eyedropper.active,
+.story .drawtools li.eyedropper:hover{ background-position:right bottom;}
 
 .form {
     padding: 15px;
