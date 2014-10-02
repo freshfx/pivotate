@@ -282,14 +282,14 @@ var pivotate = (function() {
 			    var currentImg = self.formatIMG.toDataURL();
 			    canvas.setAttribute( "height",  ( window.innerHeight - 125 ) + "px" );
 			    canvas.setAttribute( "width", ( window.innerWidth - 305 ) + "px" );
-			    self.formatIMG.setBackground( currentImg );
+			    self.formatIMG.fromDataURL( currentImg );
 			}
 	    },
 	    
 	    setScreenShot: function( img, id ) {
 			window.sessionStorage.setItem( "img-" + id, img );
 			if ( this.formatIMG ) {
-			    this.formatIMG.setBackground( img );
+			    this.formatIMG.fromDataURL( img );
 			}
 	    },
 
