@@ -181,10 +181,10 @@ var pivotate = (function() {
 			
 			
     	  	var draw_icons = document.querySelectorAll( '.story .drawtools > li' );
-			var tool = 'rect';
 
-			self.formatIMG = new ImgCanvas(canvas, tool);
-			
+			self.formatIMG = c;
+			var tool = 'rectangle';
+			self.formatIMG.setTool(tool);
 			for ( var i = 0, max = icons.length; i < max; i++ ) {
 			   				 
 			    draw_icons[i].addEventListener( 'click', function() {
@@ -195,8 +195,7 @@ var pivotate = (function() {
 			    
 					this.className += " active";
 					tool = this.getAttribute( "data-drawtool" );
-
-					self.formatIMG = new ImgCanvas(canvas, tool);
+					self.formatIMG.setTool(tool);
 					
 			    });
 			};
@@ -215,7 +214,7 @@ var pivotate = (function() {
 			document.querySelector("#clean").addEventListener('click', function() {
 			    var screenshot = window.sessionStorage.getItem( "img-" + self.params.id );
 			    if ( screenshot ) {
-					self.formatIMG.setBackground(screenshot);
+					self.formatIMG.fromDataURL(screenshot);
 			    }
 			});
 
@@ -276,11 +275,11 @@ var pivotate = (function() {
 	       
 			var screenshot = window.sessionStorage.getItem( "img-" + this.params.id );
 			if ( screenshot ) {
-			    this.formatIMG.setBackground( screenshot );
+			    this.formatIMG.fromDataURL( screenshot );
 			}
 		
 			window.onresize = function() {
-			    var currentImg = self.formatIMG.getDataUrl();
+			    var currentImg = self.formatIMG.toDataURL();
 			    canvas.setAttribute( "height",  ( window.innerHeight - 125 ) + "px" );
 			    canvas.setAttribute( "width", ( window.innerWidth - 305 ) + "px" );
 			    self.formatIMG.setBackground( currentImg );
