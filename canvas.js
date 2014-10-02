@@ -3,6 +3,7 @@ var ImgCanvas = function(canvas) {
     var self = this, 
     
 	 draw_tool_select = document.querySelectorAll( '.story .drawtools > li' );
+    this.canvas = canvas;
 		
 	for ( var i = 0, max = draw_tool_select.length; i < max; i++ ) {
 	    
@@ -20,7 +21,6 @@ var ImgCanvas = function(canvas) {
  	    });
  	};
 	 
-    this.canvas = canvas;
     this.context = canvas.getContext("2d");
     this.typeDraw = 'freehand';
     draw = this[this.typeDraw]();

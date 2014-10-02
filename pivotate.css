@@ -105,7 +105,7 @@ body {
 }
 
 .story .drawtools li.freehand.active,
-.story .drawtools li.square.active,
+.story .drawtools li.rect.active,
 .story .drawtools li.circle.active,
 .story .drawtools li.text.active {
     background-color: #FF9E00;
@@ -118,11 +118,11 @@ body {
     background-position:left bottom;
 }
 
-.story .drawtools li.square {
+.story .drawtools li.rect {
     background-position:-22px 0;
 }
-.story .drawtools li.square.active,
-.story .drawtools li.square:hover{
+.story .drawtools li.rect.active,
+.story .drawtools li.rect:hover{
     background-position:-22px bottom;
 }
 
