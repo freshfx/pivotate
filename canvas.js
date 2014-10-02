@@ -1,28 +1,12 @@
-var ImgCanvas = function(canvas) {
+var ImgCanvas = function(canvas, drawing_tool) {
+	draw_with = drawing_tool || "freehand";
 
     var self = this, 
+    draw;
     
-	 draw_tool_select = document.querySelectorAll( '.story .drawtools > li' );
     this.canvas = canvas;
-		
-	for ( var i = 0, max = draw_tool_select.length; i < max; i++ ) {
-	    
- 	    drawing = draw_tool_select[i].addEventListener( 'click', function() {
-			 
- 			for ( var y = 0, max = draw_tool_select.length; y < max; y++ ) {
- 			    var drawDisable = draw_tool_select[y];
- 			    drawDisable.className = drawDisable.getAttribute( "data-drawtool");
- 			}
-
- 			this.className += " active";
-
- 			drawing = this.getAttribute( "data-drawtool" );
-			alert(drawing);
- 	    });
- 	};
-	 
     this.context = canvas.getContext("2d");
-    this.typeDraw = 'freehand';
+    this.typeDraw = draw_with;
     draw = this[this.typeDraw]();
     var mouseEvt = function(event) {
         if (event.offsetX || event.offsetX == 0) {
@@ -40,7 +24,6 @@ var ImgCanvas = function(canvas) {
     this.canvas.addEventListener('mousemove',  mouseEvt, false);
     this.canvas.addEventListener('mouseup',  mouseEvt, false);
 }
-
 
 ImgCanvas.prototype = {
     
@@ -65,6 +48,7 @@ ImgCanvas.prototype = {
             );
         }
     },
+	 
 	 
 	 rect : function() {
 	 	
@@ -110,6 +94,7 @@ ImgCanvas.prototype = {
 		 
 	 },
 	 
+	 
     freehand : function() {
 
         var self = this;
@@ -150,12 +135,10 @@ ImgCanvas.prototype = {
             }
         }
     },
-	 
     getImg : function() {
         var dataURL = this.canvas.toDataURL("image/png");
         return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
     },
-	 
     getDataUrl : function() {
         return this.canvas.toDataURL("image/png");
     }

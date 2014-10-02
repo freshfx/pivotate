@@ -175,14 +175,33 @@ var pivotate = (function() {
 			    labels = document.querySelector("#labels"),
 			    description = document.querySelector( "#description" );
 
-	 			// drawing tool
 
 			canvas.setAttribute( "height",  ( window.innerHeight - 125 ) + "px" );
 			canvas.setAttribute( "width", ( window.innerWidth - 305 ) + "px" );
-		
+			
+			
+    	  	var draw_icons = document.querySelectorAll( '.story .drawtools > li' );
+			var tool = 'rect';
 
-		
-			self.formatIMG = new ImgCanvas(canvas);
+			self.formatIMG = new ImgCanvas(canvas, tool);
+			
+			for ( var i = 0, max = icons.length; i < max; i++ ) {
+			   				 
+			    draw_icons[i].addEventListener( 'click', function() {
+					for ( var y = 0, max = draw_icons.length; y < max; y++ ) {
+					    var draw_iconsDisable = draw_icons[y];
+					    draw_iconsDisable.className = draw_iconsDisable.getAttribute( "data-drawtool" );
+					}
+			    
+					this.className += " active";
+					tool = this.getAttribute( "data-drawtool" );
+
+					self.formatIMG = new ImgCanvas(canvas, tool);
+					
+			    });
+			};
+
+							
 			self.params = params || {};
 		
 			$( "#panel" ).attr('style', "width: 300px; height: " + ( window.innerHeight - 22 ) + "px");
