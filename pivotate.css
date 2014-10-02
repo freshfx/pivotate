@@ -4,11 +4,6 @@ body {
     color: #5f5f5f;
 }
 
-.rectangle {
-    border: 3px solid #FF0000;
-    position: absolute;
-}
-
 
 #canvas-background {
     cursor:url(cursor.png),auto;
@@ -104,39 +99,39 @@ body {
     width:22px;
 }
 
-.story .drawtools li.freehand.active,
-.story .drawtools li.rect.active,
-.story .drawtools li.circle.active,
-.story .drawtools li.text.active {
+.story .drawtools li.pencil.active,
+.story .drawtools li.rectangle.active,
+.story .drawtools li.ellipse.active,
+.story .drawtools li.line.active {
     background-color: #FF9E00;
     border: 1px solid #111111;
     color: #77A7DA;
 }
 
-.story .drawtools li.freehand.active, 
-.story .drawtools li.freehand:hover{
+.story .drawtools li.pencil.active, 
+.story .drawtools li.pencil:hover{
     background-position:left bottom;
 }
 
-.story .drawtools li.rect {
+.story .drawtools li.rectangle {
     background-position:-22px 0;
 }
-.story .drawtools li.rect.active,
-.story .drawtools li.rect:hover{
+.story .drawtools li.rectangle.active,
+.story .drawtools li.rectangle:hover{
     background-position:-22px bottom;
 }
 
-.story .drawtools li.circle{
+.story .drawtools li.ellipse{
     background-position:-44px 0;
 }
-.story .drawtools li.circle.active,
-.story .drawtools li.circle:hover{ background-position:-44px bottom;}
+.story .drawtools li.ellipse.active,
+.story .drawtools li.ellipse:hover{ background-position:-44px bottom;}
 
-.story .drawtools li.text{
+.story .drawtools li.line{
     background-position:right 0;
 }
-.story .drawtools li.text.active,
-.story .drawtools li.text:hover{
+.story .drawtools li.line.active,
+.story .drawtools li.line:hover{
     background-position:right bottom;
 }
 
