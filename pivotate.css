@@ -4,6 +4,12 @@ body {
     color: #5f5f5f;
 }
 
+.rectangle {
+    border: 3px solid #FF0000;
+    position: absolute;
+}
+
+
 #canvas-background {
     cursor:url(cursor.png),auto;
     color:#FFFFFF; 
@@ -102,7 +108,7 @@ body {
 .story .drawtools li.square.active,
 .story .drawtools li.circle.active,
 .story .drawtools li.text.active {
-    background-color: #333333;
+    background-color: #FF9E00;
     border: 1px solid #111111;
     color: #77A7DA;
 }

@@ -1,5 +1,3 @@
-
-
 var pivotate = (function() {
 
 	var _token = null;
@@ -112,7 +110,6 @@ var pivotate = (function() {
 		});
     }
 
-
     function loadLabels () {
 		var self = this,
 		    labels = document.querySelector( "#labels" );
@@ -135,7 +132,6 @@ var pivotate = (function() {
 			description = document.querySelector( "#description" ),
 			storyType = document.querySelector( "#story_type" );
 
-
     	var data = {
 				name        : name.value,
 				description : description.value,
@@ -148,6 +144,7 @@ var pivotate = (function() {
 					}					
 				]
 			}
+			
 		if (labels = $("#labels").val()) {
 			for (var i=0; i<labels.length; i++) labels[i] = labels[i] * 1;
 			data.label_ids = labels;
@@ -170,7 +167,7 @@ var pivotate = (function() {
 	    load : function( params ) {
 	    
 			var project = document.querySelector( "#project" ),
-			    icons = document.querySelectorAll( '.story .icons > li' ),
+				 icons = document.querySelectorAll( '.story .icons > li' ),
 			    canvas = document.querySelector( "#canvas-background" ),
 			    storyType = document.querySelector( "#story_type" ),
 			    action = document.querySelector( "#action" ),
@@ -178,8 +175,12 @@ var pivotate = (function() {
 			    labels = document.querySelector("#labels"),
 			    description = document.querySelector( "#description" );
 
+	 			// drawing tool
+
 			canvas.setAttribute( "height",  ( window.innerHeight - 125 ) + "px" );
 			canvas.setAttribute( "width", ( window.innerWidth - 305 ) + "px" );
+		
+
 		
 			self.formatIMG = new ImgCanvas(canvas);
 			self.params = params || {};
@@ -199,6 +200,8 @@ var pivotate = (function() {
 			    }
 			});
 
+			// storytypes
+			
 			for ( var i = 0, max = icons.length; i < max; i++ ) {
 			    
 			    icons[i].addEventListener( 'click', function() {
