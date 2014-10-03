@@ -83,6 +83,43 @@ body {
 }
 
 
+/*
+Editor
+*/
+
+.story #editor li {
+    background:url("editor_tools.png") no-repeat;
+    float:left;
+    cursor:pointer;
+    margin-right:4px;
+    border: 1px solid #AAAAAA;
+    border-radius: 3px 3px 3px 3px;
+    color: #666666;
+    display: block;
+    height: 20px;
+    min-width: 20px;
+}
+.story #editor li.undo {background-position:left 0;}
+.story #editor li.undo:hover{background-position:left bottom;}
+
+.story #editor li.redo {background-position:-22px 0;}
+.story #editor li.redo.active,
+.story #editor li.redo:hover{background-position:-22px bottom;}
+
+.story #editor li.bin{background-position:-44px 0;}
+.story #editor li.bin.active,
+.story #editor li.bin:hover{ background-position:-44px bottom;}
+
+.story #editor li.minus{background-position:-66px 0;}
+.story #editor li.minus.active,
+.story #editor li.minus:hover{ background-position:-66px bottom;}
+
+.story #editor li.plus{background-position:-88px 0;}
+.story #editor li.plus.active,
+.story #editor li.plus:hover{ background-position:-88px bottom;}
+
+
+
 
 
 /*
