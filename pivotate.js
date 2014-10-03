@@ -180,11 +180,14 @@ var pivotate = (function() {
 			canvas.setAttribute( "width", ( window.innerWidth - 305 ) + "px" );
 			
 			
-    	  	var draw_icons = document.querySelectorAll( '.story .drawtools > li' );
+			// brushes 
+			
+    	  	var draw_icons = document.querySelectorAll( '.story #brushes > li' );
 
 			self.formatIMG = c;
-			var tool = 'rectangle';
+			var tool = 'rectangle'; // default selection
 			self.formatIMG.setTool(tool);
+			
 			for ( var i = 0, max = draw_icons.length; i < max; i++ ) {
 			   				 
 			    draw_icons[i].addEventListener( 'click', function() {
@@ -199,7 +202,6 @@ var pivotate = (function() {
 					
 			    });
 			};
-
 							
 			self.params = params || {};
 		
@@ -217,6 +219,56 @@ var pivotate = (function() {
 					self.formatIMG.fromDataURL(screenshot);
 			    }
 			});
+			
+			// colors
+			
+    	  	var color_icons = document.querySelectorAll( '.story #colors > li' );			
+			var default_color = 'red'; // default selection
+			var color_map = new Array();
+			color_map['red'] = '#FF0000';
+			color_map['yellow'] = '#FFFF00';
+			color_map['green'] = '#00FF00';
+			color_map['blue'] = '#0000FF';
+			color_map['magenta'] = '#FF00FF';
+			color_map['cyan'] = '#00FFFF';
+			color_map['black'] = '#000000';
+			color_map['white'] = '#FFFFFF';
+			
+			self.formatIMG.setColor('#ec823f');(default_color);
+			
+			for ( var i = 0, max = color_icons.length; i < max; i++ ) {
+			   				 
+			    color_icons[i].addEventListener( 'click', function() {
+					for ( var y = 0, max = color_icons.length; y < max; y++ ) {
+					    var color_iconsDisable = color_icons[y];
+					    color_iconsDisable.className = color_iconsDisable.getAttribute( "data-colortool" );
+					}
+			    
+					this.className += " active";
+					colorvalue = this.getAttribute( "data-colortool" );
+					
+					self.formatIMG.setColor(color_map[colorvalue]);
+					
+			    });
+			};
+							
+			self.params = params || {};
+		
+			$( "#panel" ).attr('style', "width: 300px; height: " + ( window.innerHeight - 22 ) + "px");
+
+			self.token.get();
+
+			document.querySelector( "#set-token" ).addEventListener( 'click', function() {
+			   self.token.form();
+			});
+		
+			document.querySelector("#clean").addEventListener('click', function() {
+			    var screenshot = window.sessionStorage.getItem( "img-" + self.params.id );
+			    if ( screenshot ) {
+					self.formatIMG.fromDataURL(screenshot);
+			    }
+			});
+			
 
 			// storytypes
 			

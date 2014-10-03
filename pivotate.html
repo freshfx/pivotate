@@ -17,11 +17,22 @@
             
             <a href="#" id="clean"> Clean</a>
 
-            <a href="#" id="set-token"> Set Token</a>
+            <a href="#" id="set-token"> Set Token</a>			
 				
             <div class="story">
-               <div class="label">Draw </div>
-					<ul class="drawtools" id="how">
+               <div class="label">Editor Tools </div>
+					<ul class="toolpalette" id="editor">
+	               <li data-colortool="undo" title="undo" class="undo active"></li>
+	  				 	<li data-colortool="redo" title="redo" class="redo"></li>
+	               <li data-colortool="bin" title="bin" class="bin"></li>
+	               <li data-colortool="minus" title="minus" class="minus"></li>
+	               <li data-colortool="plus" title="plus" class="plus"></li>
+					</ul>
+			   </div>
+				
+            <div class="story">
+               <div class="label">Brushes </div>
+					<ul class="toolpalette" id="brushes">
 	               <li data-drawtool="rectangle" title="rectangle" class="rectangle active"></li>
 	  				 	<li data-drawtool="pencil" title="pencil" class="pencil"></li>
 	               <li data-drawtool="ellipse" title="ellipse" class="ellipse"></li>
@@ -30,7 +41,20 @@
 					</ul>
 			   </div>
 				
-				
+            <div class="story">
+               <div class="label">Colors </div>
+					<ul class="toolpalette" id="colors">
+	               <li data-colortool="red" title="red" class="red active"></li>
+	  				 	<li data-colortool="yellow" title="yellow" class="yellow"></li>
+	               <li data-colortool="green" title="green" class="green"></li>
+	               <li data-colortool="blue" title="blue" class="blue"></li>
+	               <li data-colortool="magenta" title="magenta" class="magenta"></li>
+	               <li data-colortool="cyan" title="cyan" class="cyan"></li>
+	               <li data-colortool="black" title="black" class="black"></li>
+	               <li data-colortool="white" title="white" class="white"></li>
+					</ul>
+			   </div>
+	
             <form class="form" action="#">
                 
                 <label for="project">Project</label>
@@ -86,7 +110,6 @@
         <script src="jquery.js" type="text/javascript"></script>
         <script src="jquery-ajax-blob-arraybuffer.js" type="text/javascript"></script>
         <script src="chosen.jquery.js" type="text/javascript"></script>
-        <script src="canvas.js" type="text/javascript"></script>
         <script src="pivotate.js" type="text/javascript"></script>
         <script src="teledraw-canvas.js" type="text/javascript"></script>
         <script src="drawer.js" type="text/javascript"></script>
