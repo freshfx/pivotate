@@ -289,24 +289,10 @@ var pivotate = (function() {
 					
 			    });
 			};
-							
-			self.params = params || {};
-		
-			$( "#panel" ).attr('style', "width: 300px; height: " + ( window.innerHeight - 22 ) + "px");
-
-			self.token.get();
 
 			document.querySelector( "#set-token" ).addEventListener( 'click', function() {
 			   self.token.form();
 			});
-		
-			document.querySelector("#clean").addEventListener('click', function() {
-			    var screenshot = window.sessionStorage.getItem( "img-" + self.params.id );
-			    if ( screenshot ) {
-					self.formatIMG.fromDataURL(screenshot);
-			    }
-			});
-			
 
 			// storytypes
 			
