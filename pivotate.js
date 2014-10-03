@@ -42,7 +42,7 @@ var pivotate = (function() {
                  +  'Content-Disposition: form-data; name="file"; filename="screen.png"' + CRLF
                  + 'Content-Type: image/png' + CRLF
                  + CRLF
-                 + atob(self.formatIMG.getImg()) + CRLF
+                 + atob(self.formatIMG.toDataURL().replace(/^data:image\/(png|jpg);base64,/, "")) + CRLF
                  + CRLF
                  + '--' + boundary + "--" + CRLF;
 
