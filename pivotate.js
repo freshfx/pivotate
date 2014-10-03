@@ -173,11 +173,9 @@ var pivotate = (function() {
 
 		 if(direction == "up") {
 			 stroke_size_value += 500;
-			 console.log(stroke_size_value);
 			 return stroke_size_value;
 		 } else if(direction == "down"){
 		    stroke_size_value -= 500;
-			 console.log(stroke_size_value);
 			 return stroke_size_value;
 		 };
 	 }
