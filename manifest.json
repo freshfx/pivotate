@@ -1,7 +1,7 @@
 {
-  "name": "Pivotate extended",
-  "version": "2.5",
-  "description": "Submit to Pivotal Tracker with screenshot and editor items",
+  "name": "Pivotate Ultimate",
+  "version": "3.0",
+  "description": "Create screenshots, annotate and submit them to Pivotal Tracker with one click.",
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
