@@ -1,3 +1,13 @@
+var c;
+$(function () {
+	c = TeledrawCanvas('canvas-background',{
+      width: window.innerWidth - 305,
+      height: window.innerHeight - 125,
+      fullWidth: window.innerWidth,
+      fullHeight: window.innerHeight
+	});
+});
+
 var stroke_size_value = 2000;
 
 var pivotate = (function() {
