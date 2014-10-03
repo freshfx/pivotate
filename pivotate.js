@@ -1,3 +1,5 @@
+var stroke_size_value = 2000;
+
 var pivotate = (function() {
 
 	var _token = null;
@@ -159,6 +161,26 @@ var pivotate = (function() {
             contentType: 'application/json'
 		});
     }
+	
+	 function clean_canvas(){
+	    var screenshot = window.sessionStorage.getItem( "img-" + self.params.id );
+	    if ( screenshot ) {
+	 	    self.formatIMG.fromDataURL(screenshot);
+	    }
+	 }
+	 
+	 function changeStrokeSize(direction){
+
+		 if(direction == "up") {
+			 stroke_size_value += 500;
+			 console.log(stroke_size_value);
+			 return stroke_size_value;
+		 } else if(direction == "down"){
+		    stroke_size_value -= 500;
+			 console.log(stroke_size_value);
+			 return stroke_size_value;
+		 };
+	 }
 
 	var self = {
 		url: '',
@@ -213,12 +235,30 @@ var pivotate = (function() {
 			   self.token.form();
 			});
 		
-			document.querySelector("#clean").addEventListener('click', function() {
-			    var screenshot = window.sessionStorage.getItem( "img-" + self.params.id );
-			    if ( screenshot ) {
-					self.formatIMG.fromDataURL(screenshot);
-			    }
+			document.querySelector("#undo").addEventListener('click', function() {
+  	 	    	self.formatIMG.undo();
 			});
+		
+			document.querySelector("#redo").addEventListener('click', function() {
+  	 	    	self.formatIMG.redo();
+			});
+		
+			document.querySelector("#bin").addEventListener('click', function() {
+				clean_canvas();
+			});
+		
+			document.querySelector("#minus").addEventListener('click', function() {
+				self.formatIMG.setStrokeSize(changeStrokeSize('down'));
+			});
+		
+			document.querySelector("#plus").addEventListener('click', function() {
+				self.formatIMG.setStrokeSize(changeStrokeSize('up'));
+			});
+			
+			self.formatIMG.setStrokeSize(stroke_size_value);
+			// Editor Tools
+			
+    	  	var color_icons = document.querySelectorAll( '.story #editor > li' );			
 			
 			// colors
 			
@@ -385,7 +425,6 @@ var pivotate = (function() {
 	};
 	return self;
 })();
-
 
 window.addEventListener("load", function() {
     var urlParams = {};
